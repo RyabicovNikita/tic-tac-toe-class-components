@@ -1,21 +1,22 @@
+import { Component } from 'react';
 import { selectCurrentPlayer, selectIsGameEnded } from '../../services/selectors';
 import { connect } from 'react-redux';
 
-export function InformationContainer() {
-	const mapStateToProps = (state) => ({
-		currentPlayer: selectCurrentPlayer(state),
-		isGameEnded: selectIsGameEnded(state),
-	});
-	const Information = connect(mapStateToProps)(InformationLayout);
-	return <Information />;
+class InformationLayout extends Component {
+	render() {
+		const playerInfo = <span className="text-black">{this.props.currentPlayer}</span>;
+		return (
+			<>
+				{!this.props.isGameEnded && <p className="p-0 m-0 text-center">Player: {playerInfo}</p>}
+				{this.props.isGameEnded && playerInfo}
+			</>
+		);
+	}
 }
 
-function InformationLayout({ currentPlayer, isGameEnded }) {
-	const playerInfo = <span className="text-black">{currentPlayer}</span>;
-	return (
-		<>
-			{!isGameEnded && <p className="p-0 m-0 text-center">Player: {playerInfo}</p>}
-			{isGameEnded && playerInfo}
-		</>
-	);
-}
+const mapStateToProps = (state) => ({
+	currentPlayer: selectCurrentPlayer(state),
+	isGameEnded: selectIsGameEnded(state),
+});
+
+export const InformationContainer = connect(mapStateToProps)(InformationLayout);
