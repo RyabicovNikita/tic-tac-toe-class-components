@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import { Field } from '../Field/Field';
 import { InformationContainer } from '../Information/Information';
-import styles from './GameLayout.module.css';
 
 export const GameLayout = ({ dispatch }) => {
 	const handleClick = () => {
@@ -10,9 +9,12 @@ export const GameLayout = ({ dispatch }) => {
 		});
 	};
 	return (
-		<div className={styles['tic-tac-toe']}>
-			<button className={styles.btnStartNewGame} onClick={handleClick}>
-				Start new game
+		<div className="flex flex-col items-center" /* className={styles['tic-tac-toe']} */>
+			<button
+				className="btnStartNewGame bg-black text-main-color hover:btnStartNewGameHover"
+				onClick={handleClick}
+			>
+				{'Start new game'}
 			</button>
 			<InformationContainer />
 			<Field />

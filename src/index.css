@@ -1,20 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-:root {
-	--disabled-color: #cfcfcf;
-	--error-color: #d40000;
-	--main-color: #cbc5a0;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.btnStartNewGame {
+		padding: 0.5em 0.75em;
+		font-size: 23px;
+		border: none;
+		transition: background-color 0.15s ease;
+		width: 200px;
+		height: 20px;
+		border-radius: 15px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+	.btnStartNewGameHover {
+		background-color: #78745c;
+		color: white;
+	}
+	.w-500 {
+		width: 500px;
+	}
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 #root {
+	background-color: var(--main-color);
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
+
+:root {
+	--disabled-color: #cfcfcf;
+	--error-color: #d40000;
+	--main-color: #cbc5a0;
+}
+
 button {
 	all: unset;
 }
 body {
-	color: var(--main-color);
 	margin: 0;
 	font-family: 'Permanent Marker', 'Arial', cursive;
 	font-size: 95px;

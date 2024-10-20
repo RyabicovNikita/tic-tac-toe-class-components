@@ -1,4 +1,3 @@
-import styles from './Information.module.css';
 import { selectCurrentPlayer, selectIsGameEnded } from '../../services/selectors';
 import { connect } from 'react-redux';
 
@@ -12,10 +11,10 @@ export function InformationContainer() {
 }
 
 function InformationLayout({ currentPlayer, isGameEnded }) {
-	const playerInfo = <span className={styles['info__player']}>{currentPlayer}</span>;
+	const playerInfo = <span className="text-black">{currentPlayer}</span>;
 	return (
 		<>
-			{!isGameEnded && <p className={styles['info']}>Player: {playerInfo}</p>}
+			{!isGameEnded && <p className="p-0 m-0 text-center">Player: {playerInfo}</p>}
 			{isGameEnded && playerInfo}
 		</>
 	);
